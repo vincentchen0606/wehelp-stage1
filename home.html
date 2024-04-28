@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>歡迎光臨,請輸入帳號密碼</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='week4.css') }}" />
+    <script src="{{ url_for('static', path='week4.js') }}"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="welcome">
+        <h1>歡迎光臨，請輸入帳號密碼</h1>
+      </div>
+      <div class="login_title">
+        <h2>登入系統</h2>
+      </div>
+      <form id="signinForm" method="post" action="/signin" novalidate>
+        <div class="form-group">
+          <label for="username">帳號</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">密碼</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <div class="form-group checkbox-group">
+          <div class="checkbox-wrapper">
+            <label for="myCheckbox">同意條款</label>
+            <input type="checkbox" id="myCheckbox" />
+          </div>
+        </div>
+        <!-- <button id="button" type="button" onclick="checkCheckbox()">登入</button> -->
+        <button id="button" type="submit">登入</button>
+      </form>
+    </div>
+  </body>
+</html>
