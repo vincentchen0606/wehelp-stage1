@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>歡迎光臨,請輸入帳號密碼</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='week6.css') }}" />
+
+    <script src="{{ url_for('static', path='week6.js') }}"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="welcome">
+        <h1>歡迎光臨，請註冊登入系統</h1>
+      </div>
+      <div class="login_title">
+        <h2>註冊帳號</h2>
+      </div>
+      <form
+        id="signupForm"
+        method="post"
+        action="/signup"
+        onsubmit="validateSignupForm(event)"
+        novalidate
+      >
+        <div class="form-group">
+          <label for="signup-name">姓名</label>
+          <input type="text" id="signup-name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="signup-username">帳號</label>
+          <input type="text" id="signup-username" name="username" required />
+        </div>
+        <div class="form-group">
+          <label for="signup-password">密碼</label>
+          <input
+            type="password"
+            id="signup-password"
+            name="password"
+            required
+          />
+        </div>
+        <button id="button" type="submit">註冊</button>
+      </form>
+      <div class="divider"></div>
+
+      <div class="login_title">
+        <h2>登入系統</h2>
+      </div>
+      <!-- novalidate:hide input required message "please fill out this field" -->
+      <form
+        id="signinForm"
+        method="post"
+        action="/signin"
+        onsubmit="validateSigninForm(event) "
+        novalidate
+      >
+        <div class="form-group">
+          <label for="signin-username">帳號</label>
+          <input type="text" id="signin-username" name="username" required />
+        </div>
+        <div class="form-group">
+          <label for="signin-passowrd">密碼</label>
+          <input
+            type="password"
+            id="signin-password"
+            name="password"
+            required
+          />
+        </div>
+        <!-- <div class="form-group checkbox-group">
+          <div class="checkbox-wrapper">
+            <label for="myCheckbox">同意條款</label>
+            <input type="checkbox" id="myCheckbox" />
+          </div>
+        </div> -->
+        <!-- <button id="button" type="button" onclick="checkCheckbox()">登入</button> -->
+        <button id="button" type="submit">登入</button>
+      </form>
+    </div>
+  </body>
+</html>
