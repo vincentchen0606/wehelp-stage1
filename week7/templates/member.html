@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>成功頁面</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='week7.css') }}" />
+    <script src="{{ url_for('static', path='week7.js') }}"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="welcome">
+        <h1>歡迎光臨,這是會員頁</h1>
+      </div>
+      <div class="login_title">
+        <h2>{{name}},歡迎登入系統</h2>
+      </div>
+      <p align="center">
+        <a href="/signout">登出系統</a>
+      </p>
+
+      <div class="search-container">
+        <label for="content" class="content-label">查詢會員姓名</label>
+      </div>
+
+      <div class="search">
+        <input type="text" id="usernameInput" placeholder="" />
+        <!-- 用js listener處理點擊而不是用表單 -->
+        <button id="queryButton">查詢</button>
+      </div>
+      <!-- 顯示matching member's name and username -->
+      <div id="resultContainer">
+        <p id="nameResult"></p>
+        <p id="usernameResult"></p>
+      </div>
+      <!--  -->
+      <div class="search-container">
+        <label for="content" class="content-label">更新我的姓名</label>
+      </div>
+      <div class="search">
+        <input type="text" id="nameInput" placeholder="" />
+        <button id="updateButton">更新</button>
+      </div>
+      <!-- 更新成功與否 -->
+      <div id="resultContainer">
+        <p id="updateResult"></p>
+      </div>
+
+      <div class="divider"></div>
+      <div class="form-container">
+        <form action="/createMessage" method="post">
+          <div class="form-group">
+            <label for="content" class="content-label">快來留言吧</label>
+            <textarea id="content" name="content" required></textarea>
+          </div>
+          <button id="button" type="submit">送出</button>
+        </form>
+      </div>
+      <div class="divider"></div>
+      <div class="messages">
+        {% for message in messages %}
+        <div class="message">
+          <p><strong>{{ message[0] }}:</strong>{{ message[1] }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>
